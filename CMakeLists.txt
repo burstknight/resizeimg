@@ -21,8 +21,15 @@ set(PROJECT_VERSION
 message(STATUS "${PROJECT_NAME} version: ${PROJECT_VERSION}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
 aux_source_directory(./src SOURCES)
 add_executable(
 	resizeimg
 	${SOURCES}
+)
+target_link_libraries(
+	resizeimg
+	${OpenCV_LIBS}
 )

@@ -21,7 +21,7 @@ unique_ptr<Args_s> ParseArgs::parseArgs(int argc, char** argv) {
 	oApp.add_option("result_path", poArgs->m_sResultImagePath,
 			"Give the path to store the result image. The default value is `result.png`")
 		->option_text(" ")
-		->default_str("result.png");
+		->default_val("result.png");
 	oApp.add_option("-W,--width", poArgs->m_iWidth,
 			"Give the expected width to resize the input image. The default value is 800")
 		->default_val(800)

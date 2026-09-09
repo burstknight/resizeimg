@@ -24,6 +24,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+include_directories(./includes/)
+
 aux_source_directory(./src SOURCES)
 add_executable(
 	resizeimg

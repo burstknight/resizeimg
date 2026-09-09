@@ -21,8 +21,19 @@ set(PROJECT_VERSION
 message(STATUS "${PROJECT_NAME} version: ${PROJECT_VERSION}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+set(CMAKE_CXX_STANDDARD 14)
+set(CMAKE_CXX_STANDDARD_REQUIRED ON)
+
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
+
+include(FetchContent)
+FetchContent_Declare(
+	CLI11
+	GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
+	GIT_TAG v2.7.2
+)
+FetchContent_MakeAvailable(CLI11)
 
 include_directories(./includes/)
 
@@ -34,4 +45,5 @@ add_executable(
 target_link_libraries(
 	resizeimg
 	${OpenCV_LIBS}
+	CLI11::CLI11
 )

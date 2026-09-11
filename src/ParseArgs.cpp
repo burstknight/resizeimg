@@ -1,5 +1,6 @@
 #include "ParseArgs.h"
 #include "CLI/CLI.hpp"
+#include "version.h"
 #include <cstdint>
 #include <cstdio>
 #include <memory>
@@ -32,11 +33,16 @@ unique_ptr<Args_s> ParseArgs::parseArgs(int argc, char** argv) {
 		->check(CLI::Range(1, INT32_MAX));
 
 	oApp.usage("Usage: " + string(argv[0]) + " [options] <input_path> [result_path]");
+	oApp.set_version_flag("-v,--version", RESIZEIMG_VERSION, "Display the current version.");
 	argv = oApp.ensure_utf8(argv);
 
 	try {
 		oApp.parse(argc, argv);
 	} catch (const CLI::CallForHelp& e) {
+		oApp.exit(e);
+
+		return nullptr;
+	} catch (const CLI::CallForVersion& e) {
 		oApp.exit(e);
 
 		return nullptr;

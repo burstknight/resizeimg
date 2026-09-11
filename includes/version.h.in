@@ -1,0 +1,10 @@
+#ifndef INCLUDES_VERSION_H 
+#define INCLUDES_VERSION_H 
+
+#define RESIZEIMG_VERSION_MAJOR 	@resizeimg_Version_Major@
+#define RESIZEIMG_VERSION_MINOR 	@resizeimg_Version_Minor@
+#define RESIZEIMG_VERSION_PATCH		@resizeimg_Version_Patch@
+
+#define RESIZEIMG_VERSION 			"@resizeimg_Version_Major@.@resizeimg_Version_Minor@.@resizeimg_Version_Patch@@resizeimg_Version_Status@"
+
+#endif  // End of INCLUDES_VERSION_H

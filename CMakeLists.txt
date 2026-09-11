@@ -35,6 +35,12 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(CLI11)
 
+configure_file(
+	${PROJECT_SOURCE_DIR}/includes/version.h.in
+	${PROJECT_SOURCE_DIR}/includes/version.h
+	@ONLY
+)
+
 include_directories(./includes/)
 
 aux_source_directory(./src SOURCES)

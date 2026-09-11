@@ -126,3 +126,4 @@ $RECYCLE.BIN/
 
 build/*
 .cache/*
+includes/version.h
